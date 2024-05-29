@@ -1,0 +1,10 @@
+customtkinter>=0.3
+pyttsx3>=2.90
+pyaudio>=0.2.14
+pygame>=2.5.2
+openai>=0.26.5
+vosk>=0.3.45
+PyAutoGUI>=0.9.54
+librosa>=0.10.2.post1
+AppOpener>=1.7
+opencv-python==4.9.0.80
