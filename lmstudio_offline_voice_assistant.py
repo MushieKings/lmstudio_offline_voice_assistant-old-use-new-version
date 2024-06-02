@@ -423,6 +423,7 @@ def tts_thread():
                     if s.lower() in ['stop', 'stopped', 'stops', 'stuff', 'shut up', 'silence', 'quiet', 'top', 'dot']:
                         print("stop detected, killing thread")
                         stopvar = 1
+                        tts_threadvar.join()
                         break
             else:
                 print("Stop detected. Exiting stop detection loop")
@@ -443,6 +444,7 @@ def tts_thread():
                     if s.lower() in ['stop', 'stopped', 'stops', 'stuff', 'shut up', 'silence', 'quiet', 'top', 'dot']:
                         print("stop detected, killing thread")
                         stopvar = 1
+                        tts_threadvar.join()
                         break
             else:
                 print("Stop detected. Exiting stop detection loop")
@@ -1037,17 +1039,17 @@ def basictts_response():
     split_txt = replace_txt.split('.')
     if startstop == 1 and stopvar == 0:
         for x in split_txt:
-            basictts.say(x)
-            print(x)
-            basictts.runAndWait()
+            if startstop == 1 and stopvar == 0:
+                basictts.say(x)
+                print(x)
+                basictts.runAndWait()
             if stopvar == 1:
                 basictts.stop()
                 print("Stopping basic TTS response")
-                return
+                break
             if startstop == 0:
                 break
         else:
-            stopvar = 1
             print("Ending basic TTS response")
             return
 
