@@ -190,7 +190,9 @@ def read_file_content(file_path):
         return None
 
 def wakeword():
+    global stopvar
     wake_text = str
+    stopvar = 0
     while startstop == 1:
         print("listening for wakeword...")
         if wake_text != keyword:
@@ -234,6 +236,7 @@ def listen():
                 audio2text = ""
                 return audio2text
     else:
+        stream.close()
         print("Stopping listen. listentimer = ", listencounter, " of 42")
 
 def input():
