@@ -982,7 +982,8 @@ def applio_response():
                 time.sleep(1)
     print("Save Complete, Continuing to play audio")
     time.sleep(1)
-    play_applio_tts()
+    if radiovar == 1 and startstop == 1:
+        play_applio_tts()
 
 def play_applio_tts():
     global stopvar
