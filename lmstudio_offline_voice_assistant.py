@@ -1052,6 +1052,7 @@ def basictts_response():
                 break
         else:
             print("Ending basic TTS response")
+            stopvar = 1
             return
 
 def time_and_date():
